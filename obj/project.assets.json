@@ -8,25 +8,20 @@
     "net5.0": []
   },
   "packageFolders": {
-    "C:\\Users\\uo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\moi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projet dev\\MoteurGraphiqueConsole\\MoteurGraphiqueConsole.csproj",
+      "projectUniqueName": "E:\\ProjetDev\\MoteurGraphiqueConsole\\MoteurGraphiqueConsole.csproj",
       "projectName": "MoteurGraphiqueConsole",
-      "projectPath": "D:\\Projet dev\\MoteurGraphiqueConsole\\MoteurGraphiqueConsole.csproj",
-      "packagesPath": "C:\\Users\\uo\\.nuget\\packages\\",
-      "outputPath": "D:\\Projet dev\\MoteurGraphiqueConsole\\obj\\",
+      "projectPath": "E:\\ProjetDev\\MoteurGraphiqueConsole\\MoteurGraphiqueConsole.csproj",
+      "packagesPath": "C:\\Users\\moi\\.nuget\\packages\\",
+      "outputPath": "E:\\ProjetDev\\MoteurGraphiqueConsole\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\uo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\moi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -65,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
