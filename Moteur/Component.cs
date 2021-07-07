@@ -9,18 +9,35 @@ namespace MoteurGraphiqueConsole.Moteur
     class Component
     {
         private List<char[,]> Images;
-        private Position position;
+        private Vector2d position;
+        private Hitbox hitbox;
 
         /// <summary>
         /// Index de l'image en cours d'utilisation dans la liste.
         /// </summary>
+        /// 
+
         public int imageState { get; set; }
 
-        public Position Position { 
-            get 
+        public Vector2d Position
+        {
+            get
             {
                 return position;
-            } 
+            }
+        }
+
+        public Hitbox Hitbox
+        {
+            get
+            {
+                return hitbox;
+            }
+            set
+            {
+                hitbox = value;
+            }
+
         }
 
         public Component()

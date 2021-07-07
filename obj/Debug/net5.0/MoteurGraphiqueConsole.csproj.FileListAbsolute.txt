@@ -14,3 +14,19 @@ E:\ProjetDev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.dll
 E:\ProjetDev\MoteurGraphiqueConsole\obj\Debug\net5.0\ref\MoteurGraphiqueConsole.dll
 E:\ProjetDev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.pdb
 E:\ProjetDev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.genruntimeconfig.cache
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\MoteurGraphiqueConsole.exe
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\MoteurGraphiqueConsole.deps.json
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\MoteurGraphiqueConsole.runtimeconfig.json
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\MoteurGraphiqueConsole.runtimeconfig.dev.json
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\MoteurGraphiqueConsole.dll
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\ref\MoteurGraphiqueConsole.dll
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\MoteurGraphiqueConsole.pdb
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.csprojAssemblyReference.cache
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.AssemblyInfoInputs.cache
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.AssemblyInfo.cs
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.csproj.CoreCompileInputs.cache
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.dll
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\ref\MoteurGraphiqueConsole.dll
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.pdb
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.genruntimeconfig.cache

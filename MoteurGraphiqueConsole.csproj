@@ -6,7 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="JeuxTest\" />
+    <Compile Remove="JeuxTest\**" />
+    <EmbeddedResource Remove="JeuxTest\**" />
+    <None Remove="JeuxTest\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Moteur\" />
   </ItemGroup>
 

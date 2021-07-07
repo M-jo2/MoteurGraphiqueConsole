@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoteurGraphiqueConsole.Moteur
 {
-    class Position
+    struct Vector2d
     {
         public int PosX { get; set; }
         public int PosY { get; set; }
