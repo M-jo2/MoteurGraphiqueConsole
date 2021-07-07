@@ -8,24 +8,16 @@ namespace MoteurGraphiqueConsole.Moteur
 {
     class Component
     {
-        private List<char[,]> Images;
-        private Vector2d position;
+        private List<Tile[,]> Images;
         private Hitbox hitbox;
+
+        public bool Visible { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Index de l'image en cours d'utilisation dans la liste.
         /// </summary>
-        /// 
-
-        public int imageState { get; set; }
-
-        public Vector2d Position
-        {
-            get
-            {
-                return position;
-            }
-        }
+        public int ImageState { get; set; }
 
         public Hitbox Hitbox
         {
@@ -42,12 +34,19 @@ namespace MoteurGraphiqueConsole.Moteur
 
         public Component()
         {
-            imageState = 0;
+            ImageState = 0;
         }
 
-        public char[,] GetImage()
+        public Tile[,] GetImage()
         {
-            return Images[imageState];
+            return Images[ImageState];
+        }
+
+        public virtual void CollideReact(Component component){}
+
+        public void AddImage(Tile[,] tiles)
+        {
+            Images.Add(tiles);
         }
     }
 }

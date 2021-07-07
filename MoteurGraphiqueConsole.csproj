@@ -11,8 +11,4 @@
     <None Remove="JeuxTest\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Moteur\" />
-  </ItemGroup>
-
 </Project>

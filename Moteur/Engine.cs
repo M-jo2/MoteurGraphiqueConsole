@@ -36,11 +36,35 @@ namespace MoteurGraphiqueConsole.Moteur
         private List<Component> components = new List<Component>();
         public int FpsMax { get; set; }
 
+        public Component Screen { get; set; }
+
         public void AddComponent(Component component)
         {
             if (!components.Contains(component))
             {
                 components.Add(component);
+            }
+        }
+
+        public void PhysicsStep()
+        {
+            for (int i = 0; i < components.Count; i++)
+            {
+                for (int j = i+1; j < components.Count; j++)
+                {
+                    components[i].CollideReact(components[j]);
+                }
+            }
+        }
+
+        public void DisplayEveryComponent()
+        {
+            foreach(Component component in components)
+            {
+                if (Screen.Hitbox.CollideWith(component.Hitbox))
+                {
+                    
+                }
             }
         }
     }

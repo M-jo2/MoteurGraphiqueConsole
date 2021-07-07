@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace MoteurGraphiqueConsole.Moteur
 {
-    public struct Vector2d
+    public struct Tile
     {
-        public int PosX { get; set; }
-        public int PosY { get; set; }
+        public char tileChar;
+        public ConsoleColor colorChar;
+        public ConsoleColor backgroundColor;
     }
 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoteurGraphiqueConsole.Moteur
 {
-    public struct Vector2d
+    class Screen : Component
     {
-        public int PosX { get; set; }
-        public int PosY { get; set; }
+        public override  void CollideReact(Component component) { }
     }
 }
