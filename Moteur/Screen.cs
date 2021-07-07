@@ -34,9 +34,11 @@ namespace MoteurGraphiqueConsole.Moteur
                     if (this.Hitbox.VectorInside(tilePos))
                     {
                         Console.SetCursorPosition(tilePos.PosX, tilePos.PosY);
-                        Console.ForegroundColor = componentDraw[j,i].charColor;
-                        Console.BackgroundColor = componentDraw[j, i].backgroundColor;
-                        Console.Write(componentDraw[j, i].tileChar);
+                        Console.ForegroundColor = componentDraw[i,j].charColor;
+                        Console.BackgroundColor = componentDraw[i, j].backgroundColor;
+                        Console.Write(componentDraw[i, j].tileChar);
+                        Console.ResetColor();
+
                     }
                     
                 }

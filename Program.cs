@@ -1,4 +1,5 @@
 ﻿using MoteurGraphiqueConsole.Moteur;
+using MoteurGraphiqueConsole.Moteur.ReadFile;
 using System;
 using System.Threading;
 
@@ -15,20 +16,40 @@ namespace MoteurGraphiqueConsole
 
             Component test = new();
             Tile tileExample = new Tile('a', ConsoleColor.White, ConsoleColor.Black);
-            Tile[,] testTiles =new Tile[,] 
-            { 
-                { tileExample, tileExample, tileExample },
-                { tileExample, tileExample, tileExample },
-                { tileExample, tileExample, tileExample }
-            };
+            Tile[,] testTiles = Import.ImportTileMapCsv(@"Moteur/Modele_exemple/Personnage.csv");
 
 
             test.AddImage(testTiles);
-            test.Hitbox = new Hitbox(new Vector2d(10, 10), new Vector2d(5, 5));
-            Engine.Instance.AddComponent(test);
-            Engine.Instance.Run();
 
+            int gravity = 1;
+            int speedFall = 0;
+            int maxSpeedFall = 5;
+            int jumpForce = -10;
 
+            int xPos = 20;
+            int yPos = 20;
+
+            while (true)
+            {
+                yPos += speedFall;
+                speedFall += gravity;
+                if (speedFall > maxSpeedFall) speedFall = maxSpeedFall;
+                if (yPos > 100) yPos = 100;
+
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.Spacebar) speedFall = jumpForce;
+                    if (key.Key == ConsoleKey.RightArrow) xPos+=3;
+                    if (key.Key == ConsoleKey.LeftArrow) xPos-=3;
+
+                }
+
+                test.Hitbox = new Hitbox(new Vector2d(xPos, yPos), new Vector2d(5, 5));
+                Engine.Instance.AddComponent(test);
+                Engine.Instance.Run();
+                Thread.Sleep(20);
+            }
             
         }
     }
