@@ -12,10 +12,12 @@ namespace MoteurGraphiqueConsole.Moteur
         #region
         private static Engine _instance;
         static readonly object instanceLock = new object();
+
         private Engine(){
             FpsMax = 60;
-
+            Screen = new Screen();
         }
+
         public static Engine Instance
         {
             get
@@ -36,8 +38,14 @@ namespace MoteurGraphiqueConsole.Moteur
         private List<Component> components = new List<Component>();
         public int FpsMax { get; set; }
 
-        public Component Screen { get; set; }
+        public Screen Screen { get; set; }
 
+        public void Run()
+        {
+
+            PhysicsStep();
+            DisplayEveryComponent();
+        }
         public void AddComponent(Component component)
         {
             if (!components.Contains(component))
@@ -63,7 +71,7 @@ namespace MoteurGraphiqueConsole.Moteur
             {
                 if (Screen.Hitbox.CollideWith(component.Hitbox))
                 {
-                    
+                    Screen.CollideReact(component);
                 }
             }
         }

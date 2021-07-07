@@ -24,6 +24,11 @@ namespace MoteurGraphiqueConsole.Moteur
         public Vector2d Origin { get; set; }
         public Vector2d Size { get; set; }
         
+        public Hitbox(Vector2d origin, Vector2d size)
+        {
+            this.Origin = origin;
+            this.Size = size;
+        }
         public SideName IsTouching(Hitbox hitbox)
         {
             int touch = 0;
@@ -49,6 +54,15 @@ namespace MoteurGraphiqueConsole.Moteur
             }
 
             return collide;
+        }
+
+        public bool VectorInside(Vector2d vector2D)
+        {
+            return
+                vector2D.PosX > this.Origin.PosX
+                && vector2D.PosY > this.Origin.PosY
+                && vector2D.PosX < this.Origin.PosX + this.Size.PosX
+                && vector2D.PosY < this.Origin.PosY + this.Size.PosY;
         }
     }
 }

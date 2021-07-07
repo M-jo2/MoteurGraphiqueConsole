@@ -34,7 +34,9 @@ namespace MoteurGraphiqueConsole.Moteur
 
         public Component()
         {
+            Images = new List<Tile[,]>();
             ImageState = 0;
+            
         }
 
         public Tile[,] GetImage()

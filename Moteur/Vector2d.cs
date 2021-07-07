@@ -10,5 +10,11 @@ namespace MoteurGraphiqueConsole.Moteur
     {
         public int PosX { get; set; }
         public int PosY { get; set; }
+
+        public Vector2d(int PosX,int PosY)
+        {
+            this.PosX = PosX;
+            this.PosY = PosY;
+        }
     }
 }
