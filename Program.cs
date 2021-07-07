@@ -38,7 +38,7 @@ namespace MoteurGraphiqueConsole
 
                 if (Console.KeyAvailable)
                 {
-                    ConsoleKeyInfo key = Console.ReadKey();
+                    ConsoleKeyInfo key = Console.ReadKey(false);
                     if (key.Key == ConsoleKey.Spacebar) speedFall = jumpForce;
                     if (key.Key == ConsoleKey.RightArrow) xPos+=3;
                     if (key.Key == ConsoleKey.LeftArrow) xPos-=3;
