@@ -67,13 +67,15 @@ namespace MoteurGraphiqueConsole.Moteur
 
         public void DisplayEveryComponent()
         {
+            List< Component> componentsVisible = new();
             foreach(Component component in components)
             {
                 if (Screen.Hitbox.CollideWith(component.Hitbox))
                 {
-                    Screen.CollideReact(component);
+                    componentsVisible.Add(component);
                 }
             }
+            Screen.Display(componentsVisible);
         }
     }
 }

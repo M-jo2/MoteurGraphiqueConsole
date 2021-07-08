@@ -18,7 +18,7 @@ namespace MoteurGraphiqueConsole
             Tile tileExample = new Tile('a', ConsoleColor.White, ConsoleColor.Black);
             Tile[,] testTiles = Import.ImportTileMapCsv(@"Moteur/Modele_exemple/Personnage.csv");
 
-
+            Engine.Instance.AddComponent(test);
             test.AddImage(testTiles);
 
             int gravity = 1;
@@ -46,7 +46,7 @@ namespace MoteurGraphiqueConsole
                 }
 
                 test.Hitbox = new Hitbox(new Vector2d(xPos, yPos), new Vector2d(5, 5));
-                Engine.Instance.AddComponent(test);
+                
                 Engine.Instance.Run();
                 Thread.Sleep(20);
             }

@@ -8,6 +8,8 @@ namespace MoteurGraphiqueConsole.Moteur.Input_Manage
 {
     class Input
     {
-
+        public static bool IsPressed(ConsoleKeyInfo consoleKeyInfo)
+        {
+        }
     }
 }
