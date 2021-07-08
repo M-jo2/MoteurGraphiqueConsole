@@ -19,7 +19,7 @@ namespace MoteurGraphiqueConsole.Moteur
         TOP_LEFT = 9
     }
 
-    public struct Hitbox
+    public class Hitbox
     {
         public Vector2d Origin { get; set; }
         public Vector2d Size { get; set; }

@@ -32,3 +32,7 @@ D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.pdb
 D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.genruntimeconfig.cache
 D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\Moteur\Modele_exemple\Personnage.csv
 E:\ProjetDev\MoteurGraphiqueConsole\bin\Debug\net5.0\Moteur\Modele_exemple\Personnage.csv
+D:\Projet dev\MoteurGraphiqueConsole\obj\Debug\net5.0\MoteurGraphiqueConsole.csproj.CopyComplete
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\HidSharp.dll
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\GameTest\Images\mario.csv
+D:\Projet dev\MoteurGraphiqueConsole\bin\Debug\net5.0\GameTest\Images\bloc.csv

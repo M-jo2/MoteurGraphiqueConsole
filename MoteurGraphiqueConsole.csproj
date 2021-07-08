@@ -12,13 +12,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Moteur\Modele_exemple\Personnage.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <PackageReference Include="HidSharp" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="GameTest\" />
+    <None Update="GameTest\Images\bloc.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="GameTest\Images\mario.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Moteur\Modele_exemple\Personnage.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -36,7 +36,7 @@ namespace MoteurGraphiqueConsole.Moteur
         {
             Images = new List<Tile[,]>();
             ImageState = 0;
-            
+            Start();
         }
 
         public Tile[,] GetImage()
@@ -44,7 +44,9 @@ namespace MoteurGraphiqueConsole.Moteur
             return Images[ImageState];
         }
 
-        public virtual void CollideReact(Component component){}
+        public virtual void CollideReact(Component component) { }
+        public virtual void Update() { }
+        public virtual void Start() { }
 
         public void AddImage(Tile[,] tiles)
         {

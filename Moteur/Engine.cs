@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace MoteurGraphiqueConsole.Moteur
@@ -42,9 +43,17 @@ namespace MoteurGraphiqueConsole.Moteur
 
         public void Run()
         {
-
-            PhysicsStep();
-            DisplayEveryComponent();
+            while (true)
+            {
+                foreach(Component component in components)
+                {
+                    component.Update();
+                }
+                PhysicsStep();
+                DisplayEveryComponent();
+                Thread.Sleep(16);
+            }
+            
         }
         public void AddComponent(Component component)
         {
@@ -58,9 +67,10 @@ namespace MoteurGraphiqueConsole.Moteur
         {
             for (int i = 0; i < components.Count; i++)
             {
-                for (int j = i+1; j < components.Count; j++)
+                for (int j = 0; j < components.Count; j++)
                 {
-                    components[i].CollideReact(components[j]);
+                    if(!components[i].Equals(components[j]))
+                        components[i].CollideReact(components[j]);
                 }
             }
         }

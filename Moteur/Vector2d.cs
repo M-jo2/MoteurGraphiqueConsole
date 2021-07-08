@@ -16,5 +16,12 @@ namespace MoteurGraphiqueConsole.Moteur
             this.PosX = PosX;
             this.PosY = PosY;
         }
+
+
+        public override bool Equals(object obj)
+        {
+
+            return this.PosX == ((Vector2d)obj).PosX  && this.PosY == ((Vector2d)obj).PosY;
+        }
     }
 }

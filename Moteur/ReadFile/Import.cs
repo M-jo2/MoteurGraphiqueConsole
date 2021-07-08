@@ -12,7 +12,6 @@ namespace MoteurGraphiqueConsole.Moteur.ReadFile
 
         public static Tile[,] ImportTileMapCsv(string path)
         {
-            int countLineCopied = 0;
             string[] Tligne ; // tableau qui va contenir les sous-chaines extraites d'une ligne.
             char[] splitter = { ',','\n' }; // délimiteur du fichier texte
             Tile[,] tileExport = null;
