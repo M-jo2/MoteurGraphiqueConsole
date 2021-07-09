@@ -8,40 +8,41 @@ namespace MoteurGraphiqueConsole.Moteur
 {
     class Screen : Component
     {
-        private List<Vector2d> lastPixelChanged = new List<Vector2d>();
-        private List<Vector2d> pixelChanged = new List<Vector2d>();
+        private Dictionary<Vector2d,Tile> lastPixelChanged = new Dictionary<Vector2d, Tile>();
+        private Dictionary<Vector2d, Tile> pixelChanged = new Dictionary<Vector2d, Tile>();
 
+        private Vector2d sizeWindow = new Vector2d(300, 160);
 
-        public Screen()
-        {
-            bool screenOk = false;
-            do
+        public Vector2d SizeWindow { 
+            get { return sizeWindow; }
+            set 
             {
-                try
+                bool screenOk = false;
+                sizeWindow = value;
+                do
                 {
-                    Console.SetWindowSize(80, 10);
-                    Console.SetBufferSize(301, 121);
-                    Console.SetWindowSize(300, 120);
-                    screenOk = true;
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Attention : Taille de police probablement trop élevée.");
-                    Console.WriteLine("N'importe quelle touche pour continuer.");
-                    Console.ReadKey();
-                }
-            } while (!screenOk);
-            
-            
-            
-            
-            this.Hitbox = new Hitbox(new Vector2d(0, 0), new Vector2d(Console.WindowWidth,Console.WindowHeight));
+                    try
+                    {
+                        Console.SetWindowSize(80, 10);
+                        Console.SetBufferSize(sizeWindow.PosX + 1, sizeWindow.PosY + 1);
+                        Console.SetWindowSize(sizeWindow.PosX, sizeWindow.PosY);
+                        screenOk = true;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Attention : Taille de police probablement trop élevée.");
+                        Console.WriteLine("N'importe quelle touche pour continuer.");
+                        Console.ReadKey();
+                    }
+                } while (!screenOk);
+
+                this.Hitbox = new Hitbox(new Vector2d(0, 0), new Vector2d(Console.WindowWidth, Console.WindowHeight));
+            } 
         }
 
         public void Display(List<Component> components)
         {
             Console.CursorVisible = false;
-            Console.Clear();
             foreach (Component component in components)
             {
                 Tile[,] componentDraw = component.GetImage();
@@ -58,11 +59,17 @@ namespace MoteurGraphiqueConsole.Moteur
 
                         if (this.Hitbox.VectorInside(tilePos))
                         {
-                            Console.SetCursorPosition(tilePos.PosX, tilePos.PosY);
-                            Console.ForegroundColor = componentDraw[i, j].charColor;
-                            Console.BackgroundColor = componentDraw[i, j].backgroundColor;
-                            Console.Write(componentDraw[i, j].tileChar);
-                            Console.ResetColor();
+                            tilePos = new Vector2d(tilePos.PosX - this.Hitbox.Origin.PosX, tilePos.PosY - this.Hitbox.Origin.PosY);
+                            if (!pixelChanged.ContainsKey(tilePos))
+                                pixelChanged.Add(tilePos,new Tile(componentDraw[i, j].tileChar, 
+                                    componentDraw[i, j].charColor, 
+                                    componentDraw[i, j].backgroundColor));
+
+                            //Console.SetCursorPosition(tilePos.PosX, tilePos.PosY);
+                            //Console.ForegroundColor = componentDraw[i, j].charColor;
+                            //Console.BackgroundColor = componentDraw[i, j].backgroundColor;
+                            //Console.Write(componentDraw[i, j].tileChar);
+                            //Console.ResetColor();
 
                             //if (!pixelChanged.Contains(tilePos)) pixelChanged.Add(tilePos);
                             
@@ -70,32 +77,58 @@ namespace MoteurGraphiqueConsole.Moteur
                     }
                 }
             }
-            //EraseLastScreen();
-
+            UpdateScreen();
         }
 
 
-        private void EraseLastScreen()
+        private void UpdateScreen()
         {
-            foreach(Vector2d vector2D in pixelChanged)
+            List<Vector2d> pixelUpdated = new List<Vector2d>();
+
+            foreach (Vector2d vector2D in pixelChanged.Keys)
             {
-                if (lastPixelChanged.Contains(vector2D)) lastPixelChanged.Remove(vector2D);
+                if (!lastPixelChanged.ContainsKey(vector2D))
+                    lastPixelChanged.Add(vector2D, new Tile(' ',(ConsoleColor)100, (ConsoleColor)100));
             }
-            foreach(Vector2d vector2D in lastPixelChanged)
+
+            foreach (Vector2d vector2D in lastPixelChanged.Keys)
             {
-                ResetPixel(vector2D);
+                if (!pixelChanged.ContainsKey(vector2D))
+                    ResetPixel(vector2D);
+                else
+                {
+                    Tile newTile = pixelChanged[vector2D];
+                    Tile oldTile = lastPixelChanged[vector2D];
+                    bool isEqual = newTile.Equals(oldTile);
+                    if (!isEqual)
+                        SetPixel(pixelChanged[vector2D], vector2D);
+                    pixelUpdated.Add(vector2D);
+                }
             }
+
+            
+
             lastPixelChanged.Clear();
-            foreach(Vector2d vector2D in pixelChanged)
+            foreach (KeyValuePair<Vector2d,Tile> keyValuePair in pixelChanged)
             {
-                lastPixelChanged.Add(vector2D);
+                lastPixelChanged.Add(keyValuePair.Key, keyValuePair.Value);
             }
+            pixelChanged.Clear();
         }
 
         private void ResetPixel(Vector2d pos)
         {
-            Console.SetCursorPosition(pos.PosX, pos.PosY);
+            Console.SetCursorPosition(pos.PosX,  pos.PosY);
             Console.Write(" ");
+        }
+
+        private void SetPixel(Tile tile,Vector2d tilePos)
+        {
+            Console.SetCursorPosition(tilePos.PosX, tilePos.PosY);
+            Console.ForegroundColor = tile.charColor;
+            Console.BackgroundColor = tile.backgroundColor;
+            Console.Write(tile.tileChar);
+            Console.ResetColor();
         }
     }
 }

@@ -23,6 +23,8 @@ namespace MoteurGraphiqueConsole.Moteur
     {
         public Vector2d Origin { get; set; }
         public Vector2d Size { get; set; }
+        public bool EnableGravity { get; set; }
+       
         
         public Hitbox(Vector2d origin, Vector2d size)
         {

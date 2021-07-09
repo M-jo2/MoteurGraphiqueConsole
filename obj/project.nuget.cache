@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "S70STcFY8K6wKKRpuSxuS88X/Hgje96XcjeBb7xjqce1DxBXxRRK5tkf731bY7O6k2ynyKdFOv+hmvDE8Dm+9g==",
+  "dgSpecHash": "xk5DRh+TOKDflRK9FjpvC5rklAzPICiQ+K+wlUhB6NEALiHc44xGSNrBfpeEkoBlsxsPLoaz//L/DqI8n3JKWQ==",
   "success": true,
   "projectFilePath": "D:\\Projet dev\\MoteurGraphiqueConsole\\MoteurGraphiqueConsole.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\uo\\.nuget\\packages\\hidsharp\\2.1.0\\hidsharp.2.1.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

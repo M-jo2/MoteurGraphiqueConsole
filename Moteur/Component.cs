@@ -8,11 +8,12 @@ namespace MoteurGraphiqueConsole.Moteur
 {
     class Component
     {
-        private List<Tile[,]> Images;
+        protected List<Tile[,]> Images;
         private Hitbox hitbox;
 
         public bool Visible { get; set; }
         public string Name { get; set; }
+        
 
         /// <summary>
         /// Index de l'image en cours d'utilisation dans la liste.
@@ -44,7 +45,7 @@ namespace MoteurGraphiqueConsole.Moteur
             return Images[ImageState];
         }
 
-        public virtual void CollideReact(Component component) { }
+        public virtual void PhysicsUpdate(Component component) { }
         public virtual void Update() { }
         public virtual void Start() { }
 

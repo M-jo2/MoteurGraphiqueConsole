@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
+using System.Timers;
 
 namespace MoteurGraphiqueConsole.Moteur
 {
@@ -17,6 +17,7 @@ namespace MoteurGraphiqueConsole.Moteur
         private Engine(){
             FpsMax = 60;
             Screen = new Screen();
+
         }
 
         public static Engine Instance
@@ -34,26 +35,35 @@ namespace MoteurGraphiqueConsole.Moteur
                 return _instance;
             }
         }
+
+
         #endregion
+
+
 
         private List<Component> components = new List<Component>();
         public int FpsMax { get; set; }
 
         public Screen Screen { get; set; }
 
+        private bool goLoop = true;
+        public void CanLoop(object source, EventArgs e) { goLoop = true; }
         public void Run()
         {
+            System.Timers.Timer loopTiming = new() { Interval = 50 };
+            loopTiming.Elapsed += new ElapsedEventHandler(CanLoop);
+            loopTiming.Start();
             while (true)
             {
-                foreach(Component component in components)
+                if (goLoop)
                 {
-                    component.Update();
+                    UpdateStep();
+                    PhysicsStep();
+                    DisplayStep();
+                    goLoop = false;
                 }
-                PhysicsStep();
-                DisplayEveryComponent();
-                Thread.Sleep(16);
+                
             }
-            
         }
         public void AddComponent(Component component)
         {
@@ -63,6 +73,13 @@ namespace MoteurGraphiqueConsole.Moteur
             }
         }
 
+        public void UpdateStep()
+        {
+            foreach (Component component in components)
+            {
+                component.Update();
+            }
+        }
         public void PhysicsStep()
         {
             for (int i = 0; i < components.Count; i++)
@@ -70,15 +87,15 @@ namespace MoteurGraphiqueConsole.Moteur
                 for (int j = 0; j < components.Count; j++)
                 {
                     if(!components[i].Equals(components[j]))
-                        components[i].CollideReact(components[j]);
+                        components[i].PhysicsUpdate(components[j]);
                 }
             }
         }
 
-        public void DisplayEveryComponent()
+        public void DisplayStep()
         {
-            List< Component> componentsVisible = new();
-            foreach(Component component in components)
+            List<Component> componentsVisible = new();
+            foreach (Component component in components)
             {
                 if (Screen.Hitbox.CollideWith(component.Hitbox))
                 {

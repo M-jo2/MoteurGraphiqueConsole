@@ -19,5 +19,13 @@ namespace MoteurGraphiqueConsole.Moteur
             this.backgroundColor = backgroundColor;
 
         }
+
+        public override bool Equals(object obj)
+        {
+
+            return this.tileChar == ((Tile)obj).tileChar &&
+                this.charColor == ((Tile)obj).charColor &&
+                this.backgroundColor == ((Tile)obj).backgroundColor;
+        }
     }
 }

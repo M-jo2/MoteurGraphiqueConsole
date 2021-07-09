@@ -9,6 +9,8 @@ namespace MoteurGraphiqueConsole.Moteur.Input_Manage
 {
     internal static class Input
     {
+        
+
         /// <summary>
         /// A positional bit flag indicating the part of a key state denoting
         /// key pressed.
@@ -27,12 +29,8 @@ namespace MoteurGraphiqueConsole.Moteur.Input_Manage
             return (GetKeyState((int)key) & KeyPressed) != 0;
         }
 
-        /// <summary>
-        /// Gets the key state of a key.
-        /// </summary>
-        /// <param name="key">Virtuak-key code for key.</param>
-        /// <returns>The state of the key.</returns>
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern short GetKeyState(int key);
+        
     }
 }

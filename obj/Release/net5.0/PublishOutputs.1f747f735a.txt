@@ -1,0 +1,8 @@
+D:\Projet dev\GameTest\Images\bloc.csv
+D:\Projet dev\GameTest\Images\mario.csv
+D:\Projet dev\Moteur\Modele_exemple\Personnage.csv
+D:\Projet dev\MoteurGraphiqueConsole.exe
+D:\Projet dev\MoteurGraphiqueConsole.dll
+D:\Projet dev\MoteurGraphiqueConsole.deps.json
+D:\Projet dev\MoteurGraphiqueConsole.runtimeconfig.json
+D:\Projet dev\MoteurGraphiqueConsole.pdb
